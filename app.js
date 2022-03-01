@@ -1,13 +1,16 @@
+// Main Api Call whare passign name
 const searchBtn = () => {
     const inputValue = document.getElementById("search-input").value;
     document.getElementById("search-input").value = "";
     fetch(`https://openapi.programming-hero.com/api/phones?search=${inputValue}`)
         .then(response => response.json())
-        .then(data => showPhone(data.data));
+        .then(data => showPhone(data.data.slice(1,21)));
 }
+// api result Show
 const showPhone = data => {
     const container = document.getElementById("container");
     container.textContent = "";
+    
     for (const info of data) {
         const div = document.createElement("div");
         div.className = "col-md-4 ";
@@ -25,7 +28,9 @@ const showPhone = data => {
         `;
         container.appendChild(div);
     }
+    
 }
+// Phone Details Show Here
 const phoneDetails = slug => {
     fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
     .then(response => response.json())
@@ -33,19 +38,17 @@ const phoneDetails = slug => {
 }
 const detailsId = id => {
     const details = document.getElementById("details");
-    
-
     details.innerHTML = `
     <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0" >
         <div class="col-md-4">
-            <img src="${id.image}" class="img-fluid rounded-start" alt="...">
+            <img src="${id.image}" class="img-fluid rounded-start" alt="">
             </div>
         <div class="col-md-8">
             <div class="card-body">
             <h5 class="card-title">Model: ${id.name}</h5>
             <h6 class="card-title">Brand: ${id.brand}</h6>
-            <p> <i>Released Date:</i> ${id.releaseDate}</p>
+            <p> <i>Released Date:</i> ${id?.releaseDate}</p>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item text-primary"><h5>Main Feature</h5></li>
