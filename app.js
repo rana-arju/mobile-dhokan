@@ -34,8 +34,6 @@ const showPhone = data => {
     const error = document.getElementById("error");
     error.innerHTML = `<h2 class= "text-center text-danger">Oops!😥😪😢 Your Search Result Not Found!</h2>`;
 }
-
-    
 }
 
 // Phone Details Show Here
@@ -66,21 +64,22 @@ const detailsId = id => {
             </ul>
             <ul class="list-group list-group-flush">
             <li class="list-group-item text-primary" id ="sensor"><h5>${id.name} Specification</h5></li>
-            <li class="list-group-item">1) ${id.mainFeatures.sensors[0]}</li>
-            <li class="list-group-item">2) </h5> ${id.mainFeatures.sensors[1]}</li>
-            <li class="list-group-item">3) ${id.mainFeatures.sensors[2]}</li>
-            <li class="list-group-item">4) ${id.mainFeatures.sensors[3]}</li>
-            <li class="list-group-item">5) ${id.mainFeatures.sensors[4]}</li>
-            <li class="list-group-item">6) ${id.mainFeatures.sensors[5]}</li>
+            <li class="list-group-item">1) ${id.mainFeatures.sensors[0] ? id.mainFeatures.sensors[0]: "No more Info"}</li>
+            <li class="list-group-item">2) </h5> ${id.mainFeatures.sensors[1] ? id.mainFeatures.sensors[1]: "No more Info"}</li>
+            <li class="list-group-item">3) ${id.mainFeatures.sensors[2] ? id.mainFeatures.sensors[2]: "No more Info"}</li>
+            <li class="list-group-item">4) ${id.mainFeatures.sensors[3] ? id.mainFeatures.sensors[3]: "No more Info"}</li>
+            <li class="list-group-item">5) ${id.mainFeatures.sensors[4] ? id.mainFeatures.sensors[4]: "No more Info"}</li>
+            <li class="list-group-item">6) ${id.mainFeatures.sensors[5] ? id.mainFeatures.sensors[5]: "No more Info"}</li>
+            
             </ul>
             <ul class="list-group list-group-flush">
             <li class="list-group-item text-primary" id ="sensor"><h5>${id.name} Others</h5></li>
-            <li class="list-group-item">WLAN: ${id.others.WLAN}</li>
-            <li class="list-group-item">Bluetooth: </h5> ${id.others.Bluetooth}</li>
-            <li class="list-group-item">GPS: ${id.others.GPS}</li>
-            <li class="list-group-item">NFC: ${id.others.NFC}</li>
-            <li class="list-group-item">Radio: ${id.others.Radio}</li>
-            <li class="list-group-item">USB: ${id.others.USB}</li>
+            <li class="list-group-item">WLAN: ${id.others.WLAN ? id.others.WLAN: "Not Found"}</li>
+            <li class="list-group-item">Bluetooth: </h5> ${id.others.Bluetooth ? id.others.Bluetooth: "Not Found"}</li>
+            <li class="list-group-item">GPS: ${id.others.GPS ? id.others.GPS: "Not Found"}</li>
+            <li class="list-group-item">NFC: ${id.others.NFC ? id.others.NFC: "Not Found"}</li>
+            <li class="list-group-item">Radio: ${id.others.Radio ? id.others.Radio: "Not Found"}</li>
+            <li class="list-group-item">USB: ${id.others.USB ? id.others.USB: "Not Found!"}</li>
             </ul>
             </div>
         </div>
