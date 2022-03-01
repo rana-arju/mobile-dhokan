@@ -7,6 +7,7 @@ const searchBtn = () => {
 }
 const showPhone = data => {
     const container = document.getElementById("container");
+    container.textContent = "";
     for (const info of data) {
         const div = document.createElement("div");
         div.className = "col-md-4 ";
