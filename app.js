@@ -7,10 +7,12 @@ const searchBtn = () => {
         .then(data => showPhone(data.data.slice(1,21)));
 }
 // api result Show
+
 const showPhone = data => {
     const container = document.getElementById("container");
     container.textContent = "";
-    
+    if (data.length != 0) {
+    error.innerHTML = "";
     for (const info of data) {
         const div = document.createElement("div");
         div.className = "col-md-4 ";
@@ -28,8 +30,14 @@ const showPhone = data => {
         `;
         container.appendChild(div);
     }
+}else{
+    const error = document.getElementById("error");
+    error.innerHTML = `<h2 class= "text-center text-danger">Oops!😥😪😢 Your Search Result Not Found!</h2>`;
+}
+
     
 }
+
 // Phone Details Show Here
 const phoneDetails = slug => {
     fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
@@ -48,7 +56,7 @@ const detailsId = id => {
             <div class="card-body">
             <h5 class="card-title">Model: ${id.name}</h5>
             <h6 class="card-title">Brand: ${id.brand}</h6>
-            <p> <i>Released Date:</i> ${id?.releaseDate}</p>
+            <p> <i>Released Date:</i> ${id.releaseDate ? id.releaseDate : "Release Date Not Found"}</p>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item text-primary"><h5>Main Feature</h5></li>
